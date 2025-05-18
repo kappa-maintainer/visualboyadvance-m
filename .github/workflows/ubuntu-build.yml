@@ -1,5 +1,5 @@
 name: Ubuntu Latest
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -75,3 +75,6 @@ jobs:
       - if: matrix.build_options == 'default'
         name: Run tests
         run: cd build && xvfb-run ctest -j --output-on-failure
+
+      - name: print
+        run: tree
